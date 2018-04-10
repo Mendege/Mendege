@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>点击页面中的任意标签alert出标签名称，注意兼容</h1>
+    <div>
+        点我
+    </div><div>
+        电你
+    </div><div>
+        点她
+    </div>
+</body>
+<script>
+    //点击页面中的任意标签alert出标签名称，注意兼容  true事件句柄在捕获阶段执行  false  默认。事件句柄在冒泡阶段执行  ||even.srcElement  兼容IE8
+    //ie8不兼容该绑定事件的方法
+  /*  document.addEventListener(
+        "click",
+        function(e){
+            var event = e||event;
+            var ev = event.target||event.srcElement
+            alert(ev);
+        },
+        false
+    );*/
+
+    /* document.addEventListener(
+       "click",
+       function(e){
+           var event = e||event;
+           var ev = event.target
+           alert(ev);
+       },
+       false
+   );*/
+    document.onclick=function(e){
+        var even = e||event;
+        var ev = even.target||even.srcElement;
+        //ev.tagName 获取到元素标签  toLowerCase() 把字符串转换成小写
+        alert(ev.tagName.toLowerCase());
+    }
+    // 字符串不能太长，否者会很影响性能，尽量考虑用应用类型，数组对象等来存储字符串  拼接数组中的元素的方法  arr.join(""); join() 方法用于把数组中的所有元素放入一个字符串。
+    
+</script>
+</html>

@@ -1,0 +1,2 @@
+index.js 拼合顶层reducer
+apple-reducers.js  应用内使用到redux的各组件的默认数据以及reducer
